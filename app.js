@@ -1,12 +1,13 @@
-const quoteDiv = $("#quoteDiv");
+const quoteBody = $("#quote-body");
+const quoteFooter = $("#quote-footer");
 
 function getQuote() {
   $.getJSON("https://talaikis.com/api/quotes/random/", function(data) {
-    //data[0].content = data[0].content.substr(3, data[0].content.length-8);
-    console.log(data);
-    quoteDiv.append("<p class='text-light text-center'>" + data.quote + "</p>" + "<p class='text-light text-center'>" +  " - " + data.author + "</p>");
+    console.log($("#quote-div")[0].innerHTML);
+    quoteBody[0].innerHTML = "<p class='text-light text-center'>" + data.quote + "</p>";
+    quoteFooter[0].innerHTML = "<p class='text-light text-center'>" +  " - " + data.author + "</p>";
   });
   
 }
 
-getQuote()
+getQuote();
